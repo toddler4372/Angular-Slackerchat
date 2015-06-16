@@ -1,4 +1,46 @@
-<div class="header">
+<div class="ui padded grid">
+  <div class="sixteen wide column row button raised" id="header-section">
+      <div class="ten wide column" id="remove-padding-left">
+        <a href="#/home"><img class="ui medium image left floated" id="logo-hash" src="images/logo-hash.svg" alt="slackerchat"></a>
+        <div class="item" id="channel-dropdown">
+          <div class="ui dropdown">
+            <div class="header">
+              <h1>{{ messagesCtrl.channelName }} <i class="caret down icon"></i></h1>
+            </div>
+            <div class="menu">
+              <div class="header">
+                <p>Search Channels</p>
+              </div>
+              <div class="ui fluid left icon input">
+                <i class="search icon"></i>
+                <input type="text" name="search" placeholder="Search...">
+              </div>
+              <div class="header">
+                <p>Available Channels</p>
+              </div>
+              <div class="item" ng-repeat="channel in channelsCtrl.channels">
+                  <a ui-sref="channels.messages({channelId: channel.$id})" ui-sref-active="selected"><img class="ui image left floated" id="hash" src="images/hash.svg" alt="hashtag">{{ channel.name }}</a>
+              </div>  
+              <div class="item" id="create-channel"><a ui-sref="channels.create"><i class="plus icon"></i>create a new channel</a></div>                       
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="six wide column" id="menu-container">
+          <div class="ui list">
+              <!-- SIDEBAR -->
+              <div class="ui large icon toggle button right floated">
+                  <i class="content icon big"></i>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+
+
+
+
+<div class="header" id="channel-active">
   <h1>{{ messagesCtrl.channelName }}</h1>
 </div>
 
@@ -15,13 +57,31 @@
   </div>
 </div>
 
-<form class="message-form" ng-submit="messagesCtrl.sendMessage()">
+<div class="form-wrapper">
+  <form class="message-form" ng-submit="messagesCtrl.sendMessage()">
+    <div class="huge ui fluid left icon input">
+      <input type="text" id="input-message" ng-model="messagesCtrl.message" placeholder="Write a message..." class="form-control">
+      <button class="huge ui circular icon button" id="search-button-circle" type="submit">
+        <i class="white send icon"></i>
+      </button>
+      <i class="write icon"></i>
+    </div>
+  </form>
+</div>
 
-  <div class="input-group">
-    <input type="text" class="form-control" ng-model="messagesCtrl.message" placeholder="Type a message...">
-    <span class="input-group-btn">
-      <button class="btn btn-default" type="submit">Send</button>
-    </span>
-  </div>
 
-</form>
+<!-- SEMANTIC MODAL DROPDOWN -->
+  <script>
+    $('.dropdown').dropdown({
+        // you can use any ui transition
+        transition: 'drop'
+    });
+  </script>
+
+  <script>
+    $('.right.sidebar').first()
+      .sidebar('setting', 'transition', 'uncover')
+      .sidebar('attach events', '.toggle.button')
+      .sidebar('attach events', '.menu .item')
+    ;
+  </script>

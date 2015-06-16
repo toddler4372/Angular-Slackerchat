@@ -1,4 +1,9 @@
 {
   "firebase": "slackerchat",
-  "public": "dist"
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
 }

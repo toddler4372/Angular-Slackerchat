@@ -123,6 +123,6 @@ angular
         controller: 'ChannelsCtrl as channelsCtrl'
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/login');
   })
   .constant('FirebaseUrl', 'https://slackerchat.firebaseio.com/');

@@ -4,23 +4,83 @@
     <meta charset="utf-8">
     <title>Slackchat</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel='stylesheet' href='bower_components/semantic-ui/dist/semantic.css' />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,700,300,100' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="slackerchat">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+  <div class="ui right vertical inverted labeled icon sidebar menu" id="sidebar">
+      <a class="item" href="#/">
+        <i class="home icon"></i>
+        Home
+      </a>
+      <a class="item" href="#/login">
+        <i class="sign in icon large"></i>
+        Sign in
+      </a>
+      <a class="item" href="#/register">
+        <i class="add user icon"></i>
+        Register
+      </a>
+      <a class="item" ng-click="logout()">
+        <i class="sign out icon large"></i>
+        Sign out
+      </a>
+    </div>
+    <div class="pusher">
+
+
+
+
+  <div class="ui padded grid">
+  <div class="sixteen wide column row button raised" id="header-section">
+      <div class="three wide column" id="logo-column">
+        <a href="#/home"><img class="ui medium image left floated" id="logo-home" src="images/logo.svg" alt="slackerchat"></a>
+        <a href="#/home"><img class="ui medium image left floated" id="logo-hash" src="images/logo-hash.svg" alt="slackerchat"></a>
+        <div class="item" id="channel-dropdown">
+          <div class="ui top right pointing dropdown">
+
+            <div class="header">
+              <h1 style="color:black;">{{ messagesCtrl.channelName }}</h1>
+            </div>
+
+
+            <div class="menu">
+              <div class="item"><i class="user icon"></i><a href="#">Profile</a></div>
+              <div class="item"><i class="users icon"></i><a href="#">Followers</a></div>
+              <div class="item"><i class="unhide icon"></i><a href="#">Following</a></div>
+              <div class="item"><i class="setting icon"></i><a href="#/Settings">Settings</a></div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="thirteen wide column" id="menu-container">
+          <div class="ui list">
+              <!-- SIDEBAR -->
+              <div class="ui icon toggle button right floated">
+                  <i class="content icon big"></i>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
 
     <ui-view></ui-view>
+
+
+
+  </div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -38,11 +98,11 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-md5/angular-md5.js"></script>
+    <script src="bower_components/semantic-ui/dist/semantic.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -57,5 +117,14 @@
     <script src="channels/messages.service.js"></script>
     <script src="channels/messages.controller.js"></script>
     <!-- endbuild -->
+
+  <!-- SEMANTIC MODAL DROPDOWN -->
+  <script>
+    $('.dropdown').dropdown({
+        // you can use any ui transition
+        transition: 'drop'
+    });
+  </script>
+
 </body>
 </html>
