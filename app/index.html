@@ -44,18 +44,15 @@
 
 
   <div class="ui padded grid">
-  <div class="sixteen wide column row button raised" id="header-section">
+  <div class="sixteen wide column row button raised" id="header-desktop">
       <div class="three wide column" id="logo-column">
         <a href="#/home"><img class="ui medium image left floated" id="logo-home" src="images/logo.svg" alt="slackerchat"></a>
         <a href="#/home"><img class="ui medium image left floated" id="logo-hash" src="images/logo-hash.svg" alt="slackerchat"></a>
         <div class="item" id="channel-dropdown">
           <div class="ui top right pointing dropdown">
-
             <div class="header">
               <h1 style="color:black;">{{ messagesCtrl.channelName }}</h1>
             </div>
-
-
             <div class="menu">
               <div class="item"><i class="user icon"></i><a href="#">Profile</a></div>
               <div class="item"><i class="users icon"></i><a href="#">Followers</a></div>
@@ -67,16 +64,16 @@
       </div>
       <div class="thirteen wide column" id="menu-container">
           <div class="ui list">
-              <!-- SIDEBAR -->
-              <div class="ui icon toggle button right floated">
+              <div class="ui large icon toggle button right floated">
                   <i class="content icon big"></i>
               </div>
           </div>
-      </div>
-  </div>
+      </div>-->
+    </div>
   </div>
 
-    <ui-view></ui-view>
+
+  <ui-view></ui-view>
 
 
 
@@ -124,6 +121,14 @@
         // you can use any ui transition
         transition: 'drop'
     });
+  </script>
+
+  <script>
+    $('.right.sidebar').first()
+      .sidebar('setting', 'transition', 'uncover')
+      .sidebar('attach events', '.toggle.button')
+      .sidebar('attach events', '.menu .item')
+    ;
   </script>
 
 </body>

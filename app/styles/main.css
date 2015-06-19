@@ -35,9 +35,9 @@ a, span, p, h1, h2, h3, h4, h5, body {font-family: 'Roboto', Arial, sans-serif !
   vertical-align: top;
   height:100%;
   background:#393f4d;
-  position:relative;
   padding-bottom:100px;
   float:left;
+  min-height: 1600px;
 }
 
 .sidebar .slack-name {
@@ -57,7 +57,6 @@ a, span, p, h1, h2, h3, h4, h5, body {font-family: 'Roboto', Arial, sans-serif !
 .sidebar .room-list {
   margin-top:20px;
   background:#4d394b;
-  position:relative;
 }
 
 .sidebar .room-list .room a{
@@ -139,7 +138,6 @@ a, span, p, h1, h2, h3, h4, h5, body {font-family: 'Roboto', Arial, sans-serif !
 .sidebar .presence {
   border-radius: 50%;
   display: inline-block;
-  position: relative;
   width: 10px;
   height: 10px;
   background: #ab9ba9;
@@ -162,14 +160,13 @@ a, span, p, h1, h2, h3, h4, h5, body {font-family: 'Roboto', Arial, sans-serif !
 }
 
 .message-pane .header {
-  position: relative;
   top: 0;
   width: 100%;
   z-index: 2;
 }
 
 .message-pane .header h1 {
-  padding: 17px 10px 0 20px;
+  padding: 17px 0 0 0;
   margin-top:0px;
   margin-bottom:0px;
   font-size:24px;
@@ -183,18 +180,18 @@ a, span, p, h1, h2, h3, h4, h5, body {font-family: 'Roboto', Arial, sans-serif !
 }
 
 .form-wrapper {
-  position:fixed;
-  bottom:0;
+  position: fixed;
+  display: block;
+  width: 80%;
+  bottom: 0;
+  overflow: hidden;
   background: #eef2f5;
   padding: 17px 0px 7px 20px;
-  width: 80%;
-  -webkit-box-shadow: 0px -2px 3px 0px rgba(0,0,0,.26);
-  -moz-box-shadow: 0px -2px 3px 0px rgba(0,0,0,.26);
   box-shadow: 0px -2px 5px 0px rgba(0,0,0,.26);
-}
+  z-index: 100;
+  }
 
 .message-pane .message-wrap {
-  position: relative;
   margin: 15px 15px 15px 20px;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.2s;
@@ -228,6 +225,12 @@ a, span, p, h1, h2, h3, h4, h5, body {font-family: 'Roboto', Arial, sans-serif !
   font-weight: normal;
   font-size:10px;
 }
+.ui.comments .comment a.author {
+  font-size: 1.2em;
+}
+.avatar-container {
+  width: 8%;
+}
 
 /*  ------------SEMANTIC FONTS------------ */
 @font-face {
@@ -250,13 +253,14 @@ a, span, p, h1, h2, h3, h4, h5, body {font-family: 'Roboto', Arial, sans-serif !
     }
 
 /* -----------HEADER-------------- */
-#header-section {
-  position: fixed;
+#header-desktop {
+  position: fixed !important;
+  display: inline-block;
   top: 0;
-  z-index: 997;
   width: 100%;
   background: #f8f9fb;
   height: 65px;
+  z-index: 100;
 }
 .page-wrapper, .main {
   position: relative;
@@ -309,7 +313,7 @@ a.ng-binding.selected {
   margin-top: 5px;
 }
 /* --------------MESSAGE---------------- */
-input#input-message {
+input#input-message, input[type="text"] {
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.2s;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
@@ -324,7 +328,35 @@ input#input-message {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   background-color: #684d5e;
   margin: 0 15px 7px 15px;
+  z-index: 998;
+  height: 50px;
+  width: 50px;
 }
+.ui.card {
+  width: 92%;
+  float: left;
+  margin-left: 30px;
+  margin-right: 20px;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+}
+.ui.comments .comment .avatar img {
+  float: left;
+  margin-top: 11px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+.ui.comments {
+  margin: 0;
+  max-width: 100%;
+}
+.ui.comments img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 8px 0 12px 0;
+}
+
 /* -------------DROPDOWN--------------- */
 .item a {
   color: #684d5e;
@@ -356,6 +388,11 @@ i.small.chevron.down.icon {
 i.white.send.icon:before {
   margin-left: -5px;
 }
+.ui.circular.button > .icon {
+  width: 1em;
+  vertical-align: baseline;
+  height: 1em;
+}
 #create-channel {
   background: #F3F3F3;
 }
@@ -369,37 +406,96 @@ i.white.send.icon:before {
   color: #FFF;
 }
 body.pushable > .pusher {
-  background: #393f4d !important;
+  /*background: #393f4d !important;*/
 }
+#header-mobile {display: none;}
+#messages-channel-active {margin-left: 18px;}
 
-/* --------------MEDIA QUERIES------------- */
-@media only screen and (max-width: 999px) {
-  .sidebar {display: none;}
-  .message-pane, .form-wrapper {width: 100%;}
-  .message-pane .message-wrap {margin: 15px 20px 15px 20px;}
-  #logo-hash {visibility: visible;max-width: 60px;max-height: 60px;padding-top: 3px;}
-  #logo-home {display: none;}
-  #channel-dropdown {visibility: visible;}
-  #header-section {padding: 6px 0 0 0;;height: 80px;}
-  .button.raised {
-      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      transition-delay: 0.2s;
-      box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.2);
-  }
-  #channel-active {display: none;}
-  .main {top: 80px;}
-  .ui.dropdown > .menu {
-    width: 130%;
-  }
-  .header p {margin-left: 5px;}
-  .ui.icon.toggle.button.right.floated {
+
+/* --------------SIDE POPOUT MENU------------------- */
+.ui.icon.toggle.button.right.floated {
     background: none;
-    padding-top: 1em;
+    padding-top: .1em;
     color: #684d5e !important;
   }
   .ui.icon.toggle.button.right.floated:hover, .ui.icon.toggle.button.right.floated:active {
     color: #393f4d !important;
     outline: 0 !important;
     box-shadow: none !important;
+  }
+  .pushable > .pusher {
+    overflow: visible;
+  }
+
+/* --------------MEDIA QUERIES------------- */
+@media only screen and (min-width: 1000px) and (max-width: 1370px) {
+  .ui.card {
+    width: 90%;
+    margin-right: 10px;
+  }
+}
+@media only screen and (max-width: 999px) {
+  .ui.card {
+    width: 89%;
+    margin-right: 10px;
+  }
+  #header-desktop, #logo-column {
+    display: none;
+  }
+  .sidebar {
+    display: none;
+  }
+  .message-pane, .form-wrapper {
+    width: 100%;
+  }
+  .message-pane .message-wrap {
+    margin: 15px 20px 15px 20px;
+  }
+  #logo-hash {
+      visibility: visible;
+      max-width: 45px;
+      max-height: 45px;
+      padding-top: 3px;
+  }
+  #logo-home {
+    display: none;
+  }
+  #channel-dropdown {
+    visibility: visible;
+  }
+  #header-mobile {
+      position: fixed !important;
+      display: inline-block;
+      padding: 6px 0 0 0;
+      height: 60px;
+      top: 0;
+      width: 100%;
+      background: #f8f9fb;
+      z-index: 100;
+  }
+  .button.raised {
+      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition-delay: 0.2s;
+      box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+  #messages-channel-active {display: none;}
+  .main {
+    top: 60px;
+  }
+  .ui.dropdown > .menu {
+    width: 145%;
+  }
+  .header p {margin-left: 5px;}
+  .ui.icon.toggle.button.right.floated {
+    padding-top: .5em;
+  }
+  .message-pane .header h1 {
+    padding: 7px 0 0 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .ui.card {
+    width: 80%;
+    margin-right: 0px;
   }
 }

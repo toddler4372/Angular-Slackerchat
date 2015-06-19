@@ -1,5 +1,5 @@
 <div class="ui padded grid">
-  <div class="sixteen wide column row button raised" id="header-section">
+  <div class="sixteen wide column row button raised" id="header-mobile">
       <div class="ten wide column" id="remove-padding-left">
         <a href="#/home"><img class="ui medium image left floated" id="logo-hash" src="images/logo-hash.svg" alt="slackerchat"></a>
         <div class="item" id="channel-dropdown">
@@ -40,7 +40,7 @@
 
 
 
-<div class="header" id="channel-active">
+<div class="header" id="messages-channel-active">
   <h1>{{ messagesCtrl.channelName }}</h1>
 </div>
 
@@ -55,6 +55,93 @@
      {{ message.body }}
     </div>
   </div>
+</div>
+
+<div class="ui comments">
+  <div class="comment">
+    <div class="avatar-container">
+      <a class="avatar">
+        <img src="/images/avatar/elliot.jpg">
+      </a>
+    </div>
+    <div class="ui card">
+    <div class="content">
+        <i class="right floated like icon"></i>
+        <i class="right floated star icon"></i>
+        <a class="author">toddler</a>
+        <div class="metadata">
+          <div class="date">11:53am</div>
+          <div class="right floated rating">
+            <i class="star icon"></i>
+            5 Faves
+          </div>
+        </div>
+        <div class="text">
+          Hey, have you seen my latest video at <a href="https://www.youtube.com/watch?v=kILY0L9oTc0" target="_blank">https://www.youtube.com/watch?v=kILY0L9oTc0?</a>
+        </div>
+          <a href="https://www.youtube.com/watch?v=kILY0L9oTc0" target="_blank">
+            <img src="/images/surfing.jpg">
+          </a>
+        <div class="content">
+          <a class="header" href="https://www.youtube.com/watch?v=kILY0L9oTc0" target="_blank">Surfing in Hawaii</a>
+          <div class="meta">
+            <a>Last Watched 1 minute ago</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comment">
+    <div class="avatar-container">
+      <a class="avatar">
+        <img src="/images/avatar/helen.jpg">
+      </a>
+    </div>
+    <div class="ui card">
+    <div class="content">
+        <i class="right floated like icon"></i>
+        <i class="right floated star icon"></i>
+        <a class="author">Miss Priss</a>
+        <div class="metadata">
+          <div class="date">11:55am</div>
+          <div class="right floated rating">
+            <i class="star icon"></i>
+            2 Faves
+          </div>
+        </div>
+        <div class="text">
+          No, actually I haven't.  But I'm checking it out now!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comment">
+    <div class="avatar-container">
+      <a class="avatar">
+        <img src="/images/avatar/joe.jpg">
+      </a>
+    </div>
+    <div class="ui card">
+    <div class="content">
+        <i class="right floated like icon"></i>
+        <i class="right floated star icon"></i>
+        <a class="author">Big Boba</a>
+        <div class="metadata">
+          <div class="date">11:57am</div>
+          <div class="right floated rating">
+            <i class="star icon"></i>
+            3 Faves
+          </div>
+        </div>
+        <div class="text">
+          Wow, it looks like you really bit the dust on that last wave.  I'd love to learn, but I'll stick to the small waves here in Newport Beach.
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="form-wrapper">
