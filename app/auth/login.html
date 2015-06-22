@@ -1,21 +1,51 @@
+
 <div class="page-wrapper">
+<div class="ui padded grid">
+  <div class="one column row">
+    <div class="column">
+
+
+
+ <div class="ui comments">
 
   <div class="page-header">
-    <h1>Log In</h1>
+    <a href="#/home"><img class="ui medium image left floated" id="logo-hash" src="images/logo-hash.svg" alt="slackerchat"></a><h1>Log in</h1>
   </div>
 
-  <div ng-show="authCtrl.error">
-    <span>{{ authCtrl.error.message }}</span>
+    <form class="navbar-form navbar-left" ng-submit="authCtrl.login()">
+      
+      <div ng-show="authCtrl.error">
+        <span>{{ authCtrl.error.message }}</span>
+      </div>
+
+      <div class="ui one column middle aligned relaxed fitted stackable grid">
+        <div class="column">
+          <div class="ui form segment" id="post-form">
+            <div class="field">
+              <div class="huge ui fluid left icon input">
+                <input type="email" ng-model="authCtrl.user.email" placeholder="Email" class="form-control">
+                <i class="user icon"></i>
+              </div>
+            </div>
+            <div class="field">
+              <div class="huge ui fluid left icon input">
+                <input type="password" ng-model="authCtrl.user.password" placeholder="Password" class="form-control">
+                <i class="unlock alternate icon"></i>
+              </div>
+            </div>
+            <button class="huge 1 fluid ui secondary labeled icon button" type="submit" value="Log In">
+              Log in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <i class="sign in icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 
-  <form ng-submit="authCtrl.login()">
-    <div class="input-group">
-      <input type="email" class="form-control" placeholder="Email" ng-model="authCtrl.user.email">
-    </div>
-    <div class="input-group">
-      <input type="password" class="form-control" placeholder="Password" ng-model="authCtrl.user.password">
-    </div>
-    <input type="submit" class="btn btn-default" value="Log In">
-  </form>
 
 </div>
+</div>
+</div>
+</div>
+

@@ -411,6 +411,38 @@ body.pushable > .pusher {
 #header-mobile {display: none;}
 #messages-channel-active {margin-left: 18px;}
 
+/* ---------------LOGIN/REGISTER------------------ */
+.ui.segment {
+  box-shadow: none;
+  background-color: transparent;
+  padding-top: 0;
+}
+.page-header #logo-hash {
+  margin: 0 0 1em 1em;
+}
+.page-header h1 {
+  float: left;
+  margin-top: .2em;
+  margin-left: .2em;
+}
+.ui.labeled.icon.button {
+  background-color: #684d5e;
+  transition: box-shadow .2s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+.ui.labeled.icon.button:hover {
+  background-color: #393e4d;
+  transition: background-color 0.5s ease;
+}
+.page-header #logo-hash {
+  margin: 0 0 1em 1em;
+  visibility: visible;
+  max-width: 45px;
+  max-height: 45px;
+}
+.ui.grid > .column:not(.row) {
+  padding-top: 0; 
+}
 
 /* --------------SIDE POPOUT MENU------------------- */
 .ui.icon.toggle.button.right.floated {
@@ -497,5 +529,8 @@ body.pushable > .pusher {
   .ui.card {
     width: 80%;
     margin-right: 0px;
+  }
+  .ui.segment {
+    padding-top: 1em;
   }
 }
